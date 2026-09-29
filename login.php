@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 // echo "<pre>";
 
@@ -21,41 +23,28 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($email  == $admin && $password == $number) {
 
+ $_SESSION["loggedin"] = "yes";
+
         header("Location: profile.php");
         
         exit;
 
     } else {
         
+        $_SESSION["loggedin"] = "yes";
+
         header("Location: form.php");
          
         exit;
-
+        
     }
-    } else {
+} else {
+
+
+           $_SESSION["loggedin"] = "yes";
 
     header("Location: form.php");
     
     exit;
-
-    }
-
-
-
-
-    if ($_SERVER['REQUEST_METHOD'] == "post") {   
-
-      $user = "user@gmail.com";
-      $number = "114445555";
-      if ($email == $user && $password == $number) {
-        
-      header("Location: profile.php");
-
-      exit;
-      
-      }else{
-        
-      }
-  
-    }
+}
 ?>
