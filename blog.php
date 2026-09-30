@@ -1,5 +1,11 @@
 <?php
+
 session_start();
+
+// if (isset($_SESSION['loggedin'] == false)) {
+//     header("Location: form.php");
+//     exit;
+// };
 
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] === false) {
     header("Location: form.php");
@@ -31,11 +37,11 @@ if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] === false) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="profile.php">Profile</a>
+                        <a class="nav-link" href="blog.php">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Register</a>
@@ -53,10 +59,11 @@ if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] === false) {
     </nav>
     <div class="container py-5">
         <div class="row justify-content-center">
-            <h1 class="text-secondary-emphasis font-monospace"> Profile Page</h1>
+            <h1>Blog  page</h1>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
+
 </html>
