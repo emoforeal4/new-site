@@ -30,6 +30,17 @@ if (isset($_SESSION['isLoggedIn']) == true) {
       <div class="col-6">
         <form action="login.php" method="post">
 
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="u_name" class="form-control" id="username" placeholder="Username">
+            <?php if (isset($_SESSION['u_name']) == true) {  ?>
+              <div class="alert alert-danger my-2" role="alert">
+                <?php echo $_SESSION['username_err'];
+                unset($_SESSION['username_err']); ?>
+              </div>
+            <?php } ?>
+
+          </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -39,6 +50,15 @@ if (isset($_SESSION['isLoggedIn']) == true) {
             <label for="inputPassword5" class="form-label">Password</label>
             <input type="password" name="password" id="inputPassword5" class="form-control" placeholder="password" aria-describedby="passwordHelpBlock">
           </div>
+          <div class="mb-3">
+            <?php if (isset($_SESSION['error']) == true) {  ?>
+              <div class="alert alert-danger" role="alert">
+                <?php echo $_SESSION['error'];
+                unset($_SESSION['error']); ?>
+              </div>
+            <?php } ?>
+          </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>

@@ -18,12 +18,22 @@ if (isset($_SESSION['isLoggedIn' == true])) {
 // echo "</pre>";
 
 
+
+
+
+
+
 $admin = "user@gmail.com";
 $number = "12345678";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
+    if (empty($_POST['u_name']) == true) {
 
+        $_SESSION['username_err'] = "Username is requied";
+        header("Location: form.php");
+        exit;
+    }
 
     $email = $_POST['email'];
     $password   = $_POST['password'];
@@ -33,13 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($email  == $admin && $password == $number) {
 
         $_SESSION["isLoggedIn"] = "YES";
+        $_SESSION['u_name'] = $_POST['u_name'];
 
         header("Location: profile.php");
 
         exit;
     } else {
 
-        $_SESSION["isLoggedIn"] = "NO";
+        $_SESSION['error'] = "login failed, email or password is worng";
 
         header("Location: form.php");
 

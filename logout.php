@@ -7,6 +7,3 @@ session_destroy();
 
 header("Location: form.php");
 exit;
-
-
-?>
